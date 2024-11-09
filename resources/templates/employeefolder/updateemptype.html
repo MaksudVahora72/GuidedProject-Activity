@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Update Employee Type</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+<body>
+	<div class="container my-2">
+		<h1>Update Fuel Type</h1>
+			<form action="#" th:action="@{/api/v1/updemptype}" th:object="${emptype}"
+            	method="POST">
+            	<input type="hidden" th:field="*{etype_id}" th:value="${emptype.etype_id}"/>
+            	Employee type description:<br/>
+	            <input type="text" 
+	            	th:field="*{etype_desc}" placeholder="Emp type Description"
+	                class="form-control mb-4 col-4" 
+	                th:value="${emptype.etype_desc}"> 
+	            <br/>
+	            <button type="submit" class="btn btn-info col-2">Save Employee Type</button>
+        </form>
+	</div>
+</body>
+</html>

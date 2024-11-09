@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Update User Type</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+<body>
+	<div class="container my-2">
+		<h1>Uddate User Type</h1>
+			<form action="#" th:action="@{/api/v1/updusertype}" th:object="${usertype}"
+            	method="POST">
+            	<input type="hidden" th:field="*{utype_id}" th:value="${usertype.utype_id}"/>
+            	User name:<br/>
+	            <input type="text" 
+	            	th:field="*{utype_desc}" placeholder="User Description"
+	                class="form-control mb-4 col-4" 
+	                th:value="${usertype.utype_desc}"> 
+	            <br/>
+	            <button type="submit" class="btn btn-info col-2">Save User Type</button>
+        </form>
+	</div>
+</body>
+</html>

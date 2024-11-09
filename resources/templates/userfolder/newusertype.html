@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>New User Type</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+<body>
+	<div class="container my-2">
+		<h1>New user Types entry</h1>
+			<form action="#" th:action="@{/api/v1/usertype}" th:object="${usertype}"
+            	method="POST">
+            	User Type:<br/><br/>
+	            <input type="text" 
+	            	th:field="*{utype_desc}" placeholder="User Type"
+	                class="form-control mb-4 col-4"> 
+	            <br/>
+	            <button type="submit" class="btn btn-info col-2">Save User type</button>
+        </form>
+	</div>
+</body>
+</html>

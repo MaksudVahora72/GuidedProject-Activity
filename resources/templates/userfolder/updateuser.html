@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Update User</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+<body>
+	<div class="container my-2">
+		<h1>Update User</h1>
+			<form action="#" th:action="@{/api/v1/upduser}" th:object="${user}"
+            	method="POST">
+            	<input type="hidden" th:field="*{userid}" th:value="${user.userid}"/>
+            	User name:<br/>
+	            <input type="text" 
+	            	th:field="*{username}" placeholder="User Name"
+	                class="form-control mb-4 col-4" 
+	                th:value="${user.username}"> 
+				User Password:<br/>
+				<input type="password"
+	                th:field="*{userpassword}" placeholder="Password"
+	                class="form-control mb-4 col-4"
+	                th:value="${user.userpassword}">
+	            User Type:<br/>
+	            <select th:field="*{utypeid}">
+	            	<span th:each="usertype:${usertypes}">
+	            		<option th:value="${usertype.utype_id}">
+	            			<span th:text="${usertype.utype_desc}"></span>
+	            		</option>
+	            	</span>
+	            </select>
+	            <br/><br/>
+	            <button type="submit" class="btn btn-info col-2">Save User</button>
+        </form>
+	</div>
+</body>
+</html>

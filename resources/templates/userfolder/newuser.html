@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>New User</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+</head>
+<body>
+	<div class="container my-2">
+		<h1>SignUp</h1>
+			<form action="#" th:action="@{/api/v1/user}" th:object="${user}"
+            	method="POST">
+            	User name:<br/>
+	            <input type="text" 
+	            	th:field="*{username}" placeholder="User Name"
+	                class="form-control mb-4 col-4"> 
+				User Password:<br/>
+				<input type="password"
+	                th:field="*{userpassword}" placeholder="Password"
+	                class="form-control mb-4 col-4">
+	            User Type:<br/>
+	            <select th:field="*{utypeid}">
+	            	<span th:each="usertype:${usertypes}">
+	            		<option th:value="${usertype.utype_id}">
+	            			<span th:text="${usertype.utype_desc}"></span>
+	            		</option>
+	            	</span>
+	            </select>
+	            <br/><br/>
+	            <button type="submit" class="btn btn-info col-2">Save User</button>
+        </form>
+	</div>
+</body>
+</html>

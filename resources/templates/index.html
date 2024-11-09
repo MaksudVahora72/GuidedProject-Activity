@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>GPS Fleet Management</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+    <style type="text/css">
+    	p{
+    		font-size: 15px;
+    		font-weight: bold;
+    		color: red;
+    	}
+    </style>
+</head>
+<body>
+	<div class="container my-2" align="center">
+		<img src="main.jpeg" width="800px"/>
+		<h1>Login Me</h1>
+			<p th:text="${param.message[0]}" th:unless="${param.message == null}"></p>			
+			<form action="#" th:action="@{/api/v1/login}" th:object="${user}"
+            method="POST">
+            <input type="text" 
+            	th:field="*{username}" placeholder="User Name"
+                class="form-control mb-4 col-4"> 
+			<input type="password"
+                th:field="*{userpassword}" placeholder="Password"
+                class="form-control mb-4 col-4">
+                
+            <button type="submit" class="btn btn-info col-2">Sign in</button>
+        	<br/><br/>
+        </form>
+	</div>
+</body>
+</html>
